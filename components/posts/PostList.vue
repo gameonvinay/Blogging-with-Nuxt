@@ -1,14 +1,26 @@
 <template>
-  <section>
-    <PostPreview id="1" thumbnail="blur-close-up-code-computer-546819.jpg" title="Hello There" previewText="This is my first post"></PostPreview>
+  <section class="flex flex-row flex-wrap">
+    <PostPreview v-for="post in posts" :key="post.id" :id="post.id" :is-admin="isAdmin" :thumbnail="post.thumbnail" :title="post.title" :previewText="post.previewText"></PostPreview>
   </section>
 </template>
 
 <script>
 import PostPreview from '@/components/posts/PostPreview'
 export default {
+  name: 'PostList',
   components: {
     PostPreview,
+  },
+  props: {
+    isAdmin: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    posts: {
+      type: Array,
+      required: true,
+    },
   },
 }
 </script>

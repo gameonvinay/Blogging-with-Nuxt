@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center mt-10">
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -9,6 +9,11 @@ import PostList from '@/components/posts/PostList'
 export default {
   components: {
     PostList,
+  },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    },
   },
 }
 </script>

@@ -11,6 +11,7 @@ import TheHeader from '../components/navigation/TheHeader'
 import TheSideNav from '../components/navigation/TheSideNav'
 
 export default {
+  name: 'Default',
   components: {
     TheHeader,
     TheSideNav,

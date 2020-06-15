@@ -1,6 +1,6 @@
 <template>
-  <div class="justify-center items-center text-center mx-auto">
-    <nuxt-link :to="'/posts/' + id">
+  <div class="justify-center items-center text-center mx-auto my-4">
+    <nuxt-link :to="postLink">
       <article>
         <div>
           <img class="rounded-md shadow-xl mx-20 h-64 w-auto inline-block" :src="require('@/assets/img/' + thumbnail + '')" />
@@ -22,6 +22,10 @@ export default {
       type: String,
       required: true,
     },
+    isAdmin: {
+      type: Boolean,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -33,6 +37,11 @@ export default {
     thumbnail: {
       type: String,
       required: true,
+    },
+  },
+  computed: {
+    postLink() {
+      return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id
     },
   },
 }
