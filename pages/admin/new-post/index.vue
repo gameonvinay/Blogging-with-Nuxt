@@ -26,7 +26,7 @@ export default {
 
 <style>
 .form-container {
-  width: 50vw;
+  max-width: 600px;
   height: auto;
   box-sizing: border-box;
   display: block;

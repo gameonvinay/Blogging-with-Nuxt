@@ -1,5 +1,5 @@
 <template>
-  <div class="p-8">
+  <div class="p-8 max-w-6xl items-center m-auto">
     <section class="pb-6 text-center border-b-2 border-gray-500">
       <button @click="$router.push('/admin/new-post')" class="btn-post">Create Post</button>
     </section>
@@ -11,12 +11,8 @@
 </template>
 
 <script>
-import PostList from '@/components/posts/PostList'
 export default {
   layout: 'admin',
-  components: {
-    PostList,
-  },
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts
