@@ -2,6 +2,7 @@
   <div class="p-8 max-w-6xl items-center m-auto">
     <section class="pb-6 text-center border-b-2 border-gray-500">
       <button @click="$router.push('/admin/new-post')" class="btn-post">Create Post</button>
+      <button @click="onLogOut" class="btn-post">Log out</button>
     </section>
     <section class="text-center pt-10">
       <h1>Existing Posts</h1>
@@ -13,9 +14,16 @@
 <script>
 export default {
   layout: 'admin',
+  middleware: ['check-auth', 'auth'],
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts
+    },
+  },
+  methods: {
+    onLogOut() {
+      this.$store.dispatch('logout')
+      this.$router.push('/admin/auth')
     },
   },
 }

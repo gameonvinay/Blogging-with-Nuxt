@@ -1,3 +1,4 @@
+import bodyParser from 'body-parser'
 export default {
   mode: 'universal',
   /*
@@ -69,5 +70,7 @@ export default {
   },
   env: {
     baseUrl: process.env.BASE_URL || 'https://nuxt-blog-884b3.firebaseio.com',
+    fbAPIKey: 'AIzaSyAEtSqhAzw_RyLNtOfNUvMuEgGMFW0VEYw',
   },
+  serverMiddleware: [bodyParser.json(), '@api'],
 }
