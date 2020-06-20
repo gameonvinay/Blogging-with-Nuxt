@@ -2,6 +2,7 @@ import bodyParser from 'body-parser'
 require('dotenv').config()
 export default {
   mode: 'universal',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -78,4 +79,8 @@ export default {
   },
   privateRuntimeConfig: { fbAPIKey: process.env.fbAPIKey }, */
   serverMiddleware: [bodyParser.json(), '@api'],
+  generate: {
+    fallback: true,
+    exclue: [/admin/],
+  },
 }
