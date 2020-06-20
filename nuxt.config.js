@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser'
+require('dotenv').config()
 export default {
   mode: 'universal',
   /*
@@ -70,7 +71,11 @@ export default {
   },
   env: {
     baseUrl: process.env.BASE_URL || 'https://nuxt-blog-884b3.firebaseio.com',
-    fbAPIKey: 'AIzaSyAEtSqhAzw_RyLNtOfNUvMuEgGMFW0VEYw',
+    fbAPIKey: process.env.fbAPIKey,
   },
+  /* publicRuntimeConfig: {
+    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-884b3.firebaseio.com',
+  },
+  privateRuntimeConfig: { fbAPIKey: process.env.fbAPIKey }, */
   serverMiddleware: [bodyParser.json(), '@api'],
 }
