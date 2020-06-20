@@ -3,7 +3,7 @@
     <nuxt-link :to="postLink">
       <article>
         <div>
-          <img class="rounded-md shadow-xl mx-20 h-64 w-auto inline-block" :src="require('@/assets/img/' + thumbnail + '')" />
+          <img class="rounded-md shadow-xl mx-20 h-64 w-auto inline-block" :src="thumbnail" />
         </div>
         <div>
           <h1 class="my-4 text-2xl">{{ title }}</h1>
